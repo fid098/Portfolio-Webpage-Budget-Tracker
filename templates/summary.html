@@ -1,0 +1,48 @@
+{% extends "layout_budget.html" %}
+
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/summary.css') }}">
+{% endblock %}
+
+
+{% block title %}
+    Budget Tracker: Summary
+{% endblock %}
+
+
+{% block main %}
+<div class="container text-center mt-4">
+<h2>Finance Summary</h2>
+<div class="row mt-4">
+    <div class="col-md-4">
+        <h5> Income by Category</h5>
+        {% if income_chart %}
+        <img src="data:image/png;base64,{{ income_chart }}" class="img-fluid rounded shadow" alt="Income Chart">
+        {% else %}
+        <p class=""text-muted>No income data available</p>
+        {% endif %}
+    </div>
+
+    <div class="col-md-4">
+        <h5> Expense by Category</h5>
+        {% if expense_chart %}
+        <img src="data:image/png;base64,{{ expense_chart }}" class="img-fluid rounded shadow" alt="Expense Chart">
+        {% else %}
+        <p class=""text-muted>No expense data available</p>
+        {% endif %} 
+    </div>
+
+    <div class="col-md-4">
+        <h5>Budget </h5>
+        {% if budget_chart %}
+        <img src="data:image/png;base64,{{ budget_chart }}" class="img-fluid rounded shadow" alt="Budget Chart">
+        {% else %}
+        <p class=""text-muted>No monthly data available</p>
+        {% endif %}
+    </div>
+</div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,169 @@
+/* General Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #212529;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.top-buttons a {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.top-buttons a:hover {
+    background-color: #0d6efd;
+    color: #ffffff !important;
+    border-color: #0d6efd;
+}
+
+/* Page Heading */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.fst-italic {
+    font-size: 1.1rem;
+    color: #495057;
+}
+
+/* Main Container */
+main.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Cards Styling */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-text small {
+    font-size: 0.85rem;
+    color: #6c757d !important;
+}
+
+.card ul {
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.card ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Certificate Link Styling */
+.card a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+footer h4 {
+    margin-bottom: 1rem;
+}
+
+footer .btn {
+    transition: all 0.3s ease;
+}
+
+footer .btn:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+}
+
+.experience-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+
+.experience-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.experience-card .card-content {
+  padding: 0 1rem 1rem 1rem;
+  display: none; /* hidden by default */
+}
+
+.toggle-btn {
+  border: none;
+  background: none;
+  color: #0d6efd;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dark-mode .experience-card {
+  background-color: #1a1a1a;
+  border-color: #444;
+  color: #f0f0f0;
+}
+
+.dark-mode .toggle-btn {
+  color: #66b2ff;
+}
+
+.card-content {
+    display: none;
+    padding: 0 1rem 1rem 1rem;
+}
+.card-content.show {
+    display: block;
+}

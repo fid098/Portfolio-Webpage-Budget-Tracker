@@ -1,0 +1,158 @@
+{% extends "layout_budget.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/transaction.css') }}">
+{% endblock %}
+
+{% block title %}
+Budget Tracker: Transaction
+{% endblock %}
+
+{% block main %}
+<div class="container my-4">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm text-center p-4">
+                <h5>Current Balance</h5>
+                <h2>£{{ '%.2f'|format(net_balance) }}</h2>
+            </div>
+        </div>
+        <div class="col-md-12">
+    <div class="card shadow-sm text-center p-4 mb-4">
+        <h5>Balance Left to Budget</h5>
+        <h2 class="{% if balance_left_to_budget < 0 %}text-danger{% else %}text-success{% endif %}">
+            £{{ '%.2f' | format(balance_left_to_budget) }}
+        </h2>
+    </div>
+</div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-lg-6">
+            <div class="card shadow-sm p-4">
+                <h4 class="mb-3">Add Transaction</h4>
+                <form action="/transaction" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <input autocomplete="off" autofocus class="form-control" name="description" type="text" placeholder="e.g. Grocery Shopping">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Amount</label>
+                        <input class="form-control" name="amount" type="number" step="0.01" min="0.01" placeholder="£0.00">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date</label>
+                        <input class="form-control" name="date" type="date">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" name="category">
+                            <option value="" disabled selected>Select Category</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Health">Health</option>
+                            <option value="Wage">Wage</option>
+                            <option value="Gift">Gift</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class = "mb-3">
+                        <label class="form-label">Budget Category</label>
+                        <select class="form-select" name="budget_category" required>
+                        <option value="" disabled selected>Select Budget Category</option>
+                        <option value="cash">Cash</option>
+                        <option value="savings">Savings</option>
+                        <option value="rent">Rent</option>
+                        <option value="investments">Investments</option>
+                        <option value="miscellaneous">Miscellaneous</option>
+                        <option value="income">Income</option>
+                    </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Type</label>
+                        <select class="form-select" name="type">
+                            <option value="" disabled selected>Select Type</option>
+                            <option value="Income">Income</option>
+                            <option value="Expense">Expense</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary w-100" type="submit">Add Transaction</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow-sm p-4">
+                <h4 class="mb-3">Allocate Current Balance</h4>
+                <form method="post" action="/budget">
+                    <div class="row g-3">
+                        {% for label, field in [('Cash', 'cash'), ('Savings', 'savings'), ('Rent', 'rent'), ('Investment', 'investments'), ('Miscellaneous', 'miscellaneous')] %}
+                        <div class="col-md-6">
+                            <label class="form-label">{{ label }}</label>
+                            <input type="number" step="0.01" class="form-control" name="{{ field }}" value="{{ budget[field] }}">
+                        </div>
+                        {% endfor %}
+                        <div class="col-12 d-flex justify-content-end mt-3">
+                            <button type="submit" class="btn btn-primary">Update Budget</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow-sm p-4">
+        <h4 class="mb-3">My Transactions</h4>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% if transactions %}
+                    {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ transaction.description }}</td>
+                        <td>£{{ '%.2f'|format(transaction.amount) }}</td>
+                        <td>{{ transaction.date }}</td>
+                        <td>{{ transaction.category_name }}</td>
+                        <td>{{ transaction.transaction_type }}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center text-muted">No transactions yet.</td>
+                    </tr>
+                {% endif %}
+</tbody>
+                <tfoot class="fw-bold">
+                    <tr>
+                        <td>Total Income:</td>
+                        <td>£{{ '%.2f'|format(total_income) }}</td>
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Expense:</td>
+                        <td>£{{ '%.2f'|format(total_expense) }}</td>
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Net Balance:</td>
+                        <td>£{{ '%.2f'|format(net_balance) }}</td>
+                        <td colspan="3"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

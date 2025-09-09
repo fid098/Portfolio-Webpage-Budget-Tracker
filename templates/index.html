@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+
+{% block main %}
+
+        <div class="text-center mt-4">
+        <h1 >FIDEL EHIRIM</h1>
+        <h5 class="fst-italic">Incoming computer science student at The University of Manchester</h5>
+        </div>
+
+        <hr>
+        <div class="subjects mt-4">
+        <h6>Subjects studied at Sixth Form and Grade</h6>
+        <table class="table table-striped">
+        <tr><td>Mathematics</td><td>A*</td></tr>
+        <tr><td>Computer Science</td><td>A*</td></tr>
+        <tr><td>Welsh Baccalaureate</td><td>A*</td></tr>
+        <tr><td>Further Mathematics</td><td>A</td></tr>
+        <tr><td>Physics</td><td>B</td></tr>
+        </table>
+        </div>
+
+        <footer class="text-center mt-4 p-3 bg-light">
+        <h4>Want to see my work?</h4>
+        <a href="/projects" class="btn btn-primary" target="_blank">View Projects</a>
+        </footer>
+{% endblock %}
+

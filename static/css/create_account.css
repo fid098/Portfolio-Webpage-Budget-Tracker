@@ -1,0 +1,64 @@
+/* Remove flex from body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+    margin: 0;
+    padding: 0;
+}
+
+/* Login Container */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 5% auto; /* centers horizontally with some top margin */
+    padding: 2rem;
+}
+
+/* Login Form */
+form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Input fields */
+form input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+form input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,123,255,0.2);
+}
+
+/* Buttons */
+form .btn {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form .btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Responsive tweak */
+@media (max-width: 576px) {
+    form {
+        padding: 30px 20px;
+    }
+}

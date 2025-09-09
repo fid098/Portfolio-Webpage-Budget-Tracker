@@ -1,0 +1,66 @@
+/* === General Page Styling === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #212529;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* === Container & Layout === */
+.container {
+    margin-top: 30px;
+}
+
+/* === Page Title === */
+h2 {
+    font-weight: 700;
+    color: #0d6efd;
+    margin-bottom: 30px;
+}
+
+/* === Chart Sections === */
+.row > .col-md-4 {
+    margin-bottom: 30px;
+}
+
+.row > .col-md-4 h5 {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 15px;
+}
+
+/* === Chart Images === */
+img.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+img.img-fluid:hover {
+    transform: scale(1.03);
+}
+
+/* === Empty State Text === */
+.text-muted {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 991px) {
+    .row > .col-md-4 {
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 575px) {
+    h2 {
+        font-size: 1.6rem;
+    }
+    .row > .col-md-4 h5 {
+        font-size: 1rem;
+    }
+}

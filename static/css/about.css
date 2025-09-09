@@ -1,0 +1,88 @@
+/* styles.css */
+/* General Body Styling */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #212529; margin: 0; padding: 0; }
+ /* Header Styles */
+ header { background-color: #ffffff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+
+ .top-buttons a { margin-left: 0.5rem; margin-right: 0.5rem; transition: all 0.3s ease; }
+
+ .top-buttons a:hover { background-color: #0d6efd; color: #ffffff !important; border-color: #0d6efd; }
+
+ /* Main Titles */ h1 { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+ h3 { font-size: 1.8rem; font-weight: 600; margin-bottom: 1rem; text-align: center; }
+
+ h5 { font-size: 1.2rem; margin-bottom: 1rem; }
+
+ /* Paragraphs */
+
+ p { font-size: 1rem; line-height: 1.6; max-width: 700px; margin: 0.5rem auto; text-align: justify; }
+
+ /* Section Styling */
+
+ main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+
+ hr { border-top: 2px solid #dee2e6; margin: 2rem 0; }
+
+ /* List Groups */
+
+ .list-group { max-width: 400px; margin: 0.5rem auto 1.5rem auto; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+
+ .list-group-item { font-weight: 500; text-align: center; }
+
+ /* Buttons */
+
+ .btn-primary { padding: 0.5rem 1.5rem; font-weight: 500; transition: all 0.3s ease; }
+
+ .btn-primary:hover { background-color: #0b5ed7; border-color: #0b5ed7; transform: translateY(-2px); }
+
+ /* Text Centering for Specific Sections */
+
+ .text-center { text-align: center !important; }
+
+ /* Responsive Adjustments */
+
+ @media (max-width: 768px)
+
+ { h1 { font-size: 2.2rem; }
+
+ h3 { font-size: 1.5rem; }
+
+ p { font-size: 0.95rem; }
+
+ .list-group { width: 90%; }
+
+ .top-buttons { display: flex; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 1rem;
+ }
+}
+
+.contact-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+.contact-footer h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.contact-footer p {
+    margin-bottom: 1rem;
+    color: #495057;
+}
+
+.contact-links a {
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.contact-links a:hover {
+    transform: scale(1.2);
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+}

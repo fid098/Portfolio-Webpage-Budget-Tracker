@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+
+
+{% block title %}
+    About Me
+{% endblock %}
+
+{% block main %}
+
+<div class="text-center mt-4">
+        <h1>About Me</h1>
+        <p class="fst-italic">
+                I’m a <strong>beginner computer science student</strong> passionate about learning how to
+                create functional and beautiful websites, explore problem-solving through algorithms,
+                and understand how technology shapes the world.
+        </p>
+        </div>
+
+    <main>
+        <hr>
+        <p>I got into CS really early in my childhood as I got introduced to basic HTML and CSS.</p>
+        <p>In primary I joined the school code academy and really found myself enjoying my CS classes and continued to excel at the subject and
+             It's since been my favourite subject.</p>
+        <p>In Sixth Form, I then became the leader of my school coding club where I helped teach younger students what I had learnt over the years
+        and I ended up attaining an A* in the subject at A level and decided to further my study at the University of Manchester</p>
+
+        <hr>
+    <div class="tech-skills">
+    <section class="mt-4">
+    <h3>Technical Skills</h3>
+    <ul class="list-group">
+    <li class="list-group-item">Python</li>
+    <li class="list-group-item">HTML</li>
+    <li class="list-group-item">CSS</li>
+    <li class="list-group-item">C</li>
+    <li class="list-group-item">Debugging</li>
+    <li class="list-group-item">Microsoft 365 Suite</li>
+    </ul>
+    </section>
+    </div>
+
+    <div class= "soft-skills">
+    <section class="mt-4">
+    <h3>Soft Skills</h3>
+    <ul class="list-group">
+    <li class="list-group-item">Communication</li>
+    <li class="list-group-item">Teamwork</li>
+    <li class="list-group-item">Time Management</li>
+    <li class="list-group-item">Problem Solving</li>
+    <li class="list-group-item">Resilience</li>
+    </ul>
+    </section>
+    </div>
+
+    <section class="mt-4">
+    <h3>Hobbies</h3>
+    <p class="text-center">When I am not coding I enjoy:</p>
+    <ul class="list-group">
+    <li class="list-group-item">Long Distance Running</li>
+    <li class="list-group-item">Playing Basketball</li>
+    </ul>
+    </section>
+
+    <section class="mt-4 text-center">
+    <h5>To find out more I'd suggest you check out my</h5>
+    <a href="{{ url_for('static', filename='Fidel-Ehirim-CV.pdf') }}" class="btn btn-primary" target="_blank">Resume</a>
+
+    </section>
+
+    <footer class="contact-footer text-center mt-5 p-4 bg-light">
+    <h4>Contact Me</h4>
+    <p class="mt-4 text-center">Let's connect and collaborate!</p>
+    <div class="contact-links">
+        <a href="https://www.linkedin.com/in/fidel-ehirim/" target="_blank" rel="noopener noreferrer">
+            <img src="{{ url_for('static', filename='icons/linkedin.png') }}" alt="LinkedIn" class="contact-icon">
+        </a>
+        <a href="https://github.com/fid098" target="_blank" rel="noopener noreferrer">
+            <img src="{{ url_for('static', filename='icons/github.png') }}" alt="GitHub" class="contact-icon">
+        </a>
+        <a href="mailto:fidel.ehirim1@gmail.com">
+            <img src="{{ url_for('static', filename='icons/gmail.png') }}" alt="Email" class="contact-icon">
+        </a>
+    </div>
+</footer>
+
+{% endblock %}

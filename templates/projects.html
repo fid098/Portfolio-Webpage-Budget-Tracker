@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Projects
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css') }}">
+{% endblock %}
+
+
+{% block main %}
+
+<div class="text-center mt-4">
+    <h1>Projects</h1>
+</div>
+
+<main class="container mt-4">
+    <hr>
+
+    <div class="card">
+        <h5 class="card-title">Sustainability Tracker, A level Computer Science</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Python | Tkinter | Pandas | SQLite3 | Regex</h6>
+        <p class="card-text"><small class="text-muted">09/2023 - 06/2024</small></p>
+        <button class="toggle-btn">Show More</button>
+        <div class="toggle-content" style="display: none;">
+            <ul>
+                <li>Engineered a responsive GUI with Tkinter to streamline data input and visualization, enhancing user experience for eco-conscious activity tracking applications.</li>
+                <li>Integrated SQLite3 to construct a lightweight local database, ensuring secure, efficient storage and real-time retrieval of user-generated environmental data.</li>
+                <li>Leveraged Pandas and regular expressions to clean, analyze, and report user activity trends, delivering actionable, data-driven insights on individual environmental impact.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h5 class="card-title">Budget Tracker, CS50x Final Project</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Python | HTML | CSS | SQLite3 | Flask | Regex</h6>
+        <p class="card-text"><small class="text-muted">08/2025 - 09/2025</small></p>
+        <button class="toggle-btn">Show More</button>
+        <div class="toggle-content" style="display: none;">
+            <ul>
+                <li>Developed a full-stack web application using Python, Flask, SQLite, and Bootstrap to track personal finances, implement secure user authentication, and visualize income, expenses, and budget allocations with interactive charts.</li>
+                <li>Implemented dynamic data visualization using Matplotlib and HTML5/CSS3, including pie charts and transaction tables, enabling users to analyze spending habits, allocate budgets, and monitor financial health in real time.</li>
+                <li>Built a responsive, user-friendly interface with modern UI/UX principles, including mobile-first design, form validation, session management, and data persistence</li>
+                <a href="/login" target="_blank" class="btn btn-primary">VIEW DEMO</a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h5 class="card-title">Portfolio Website</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Python | HTML | CSS | Javascript | Flask | Bootstrap</h6>
+        <p class="card-text"><small class="text-muted">06/2025 - Present</small></p>
+        <button class="toggle-btn">Show More</button>
+        <div class="toggle-content" style="display: none;">
+            <ul>
+                <li>Designed a professional portfolio website using Flask and Bootstrap, effectively showcasing projects, skills, and accomplishments to potential employers and collaborators.</li>
+                <li>Implemented advanced responsive design techniques, ensuring seamless user experience and optimal display across desktops, tablets, and mobile devices.</li>
+                <li>Integrated dynamic contact forms, interactive social media links, and engagement features to enhance connectivity, lead generation, and audience interaction.</li>
+
+            </ul>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling; 
+        const isVisible = content.style.display === 'block';
+
+        content.style.display = isVisible ? 'none' : 'block';
+        btn.textContent = isVisible ? 'Show More' : 'Show Less';
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<div class="login-container">
+    <form action="/login" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-primary" type="submit">Log In</button>
+            <button class="btn btn-secondary" formaction="/create_account">Create Account</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+

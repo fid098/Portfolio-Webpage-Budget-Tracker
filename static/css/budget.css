@@ -1,0 +1,99 @@
+/* static/css/budget.css */
+
+/* === General Page Styling === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #212529;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* === Container & Layout === */
+.container {
+    margin-top: 20px;
+}
+
+/* === Card Styling for Balance / Totals === */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h5, 
+.card h6 {
+    font-weight: 600;
+    color: #495057;
+}
+
+.card h3, 
+.card h4 {
+    font-weight: 700;
+    color: #0d6efd; /* primary blue for emphasis */
+}
+
+/* === Budget Allocation Cards === */
+.row .col-md-3 .card {
+    padding: 15px;
+}
+
+.row .col-md-3 h4 {
+    font-size: 1.4rem;
+}
+
+/* === Tabs Styling (Recent Transactions) === */
+.nav-tabs .nav-link {
+    border: none;
+    font-weight: 500;
+    color: #495057;
+    transition: all 0.2s ease;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #0d6efd;
+}
+
+/* === Transaction Table === */
+.table {
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9fcff;
+}
+
+.table td, 
+.table th {
+    vertical-align: middle;
+}
+
+/* === Empty State (No Transactions) === */
+.text-muted {
+    font-style: italic;
+    font-size: 0.95rem;
+}

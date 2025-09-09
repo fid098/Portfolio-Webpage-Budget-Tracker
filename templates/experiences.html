@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/experiences.css') }}">
+{% endblock %}
+
+
+{% block title %}
+    Experiences
+{% endblock %}
+
+{% block main %}
+
+<div class="text-center mt-4">
+    <h1>Experience and Achievements</h1>
+    <p class="fst-italic">A collection of my milestones, certificates, and proud moments in my coding journey.</p>
+</div>
+
+<main class="container mt-4">
+    <hr>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">CS50, Harvard (06/2025 - present)</h5>
+            <button class="toggle-btn btn btn-sm btn-outline-primary">Show More</button>
+        </div>
+        <div class="card-content" style="display: none;">
+            <ul>
+                <li>Gained critical thinking and problem solving skills to build a portfolio website.</li>
+                <li>Enhanced understanding of coding and mathematical analysis.</li>
+                <li>Strengthened problem-solving skills through algorithms, data structures, and Python programming.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Intern, Edureka (06/2024 - 02/2025)</h5>
+            <button class="toggle-btn btn btn-sm btn-outline-primary">Show More</button>
+        </div>
+        <div class="card-content" style="display: none;">
+            <ul>
+                <li>Executed system-level tasks and user management protocols within Kali Linux.</li>
+                <li>Investigated target web infrastructures and found exploitable vulnerabilities.</li>
+                <li>Deconstructed Base64-encoded payloads, enhancing threat detection.</li>
+                <li><a href="https://www.edureka.co/lms/certificate/1cb245293c7d595a27510f8275f66706" target="_blank" rel="noopener noreferrer">CERTIFICATE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Volunteer Coding Instructor, Y Pant Comprehensive School (09/2022 - 06/2024)</h5>
+            <button class="toggle-btn btn btn-sm btn-outline-primary">Show More</button>
+        </div>
+        <div class="card-content" style="display: none;">
+            <ul>
+                <li>Mentored 10-15 students aged 11-13 in Scratch and Python.</li>
+                <li>Designed interactive lesson plans and hands-on coding activities.</li>
+                <li>Stimulated engagement through gamified challenges and collaborative projects.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="text-center mt-4 p-3 bg-light">
+        <h4>Want to see my work?</h4>
+        <a href="/projects" class="btn btn-primary" target="_blank">View Projects</a>
+    </footer>
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+        toggleButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.parentElement.nextElementSibling;
+                const isVisible = content.style.display === 'block';
+
+                content.style.display = isVisible ? 'none' : 'block';
+
+                btn.textContent = isVisible ?'Show More' : 'Show Less';
+            });
+        });
+    </script>
+{% endblock %}

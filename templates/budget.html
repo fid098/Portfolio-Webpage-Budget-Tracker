@@ -1,0 +1,121 @@
+{% extends "layout_budget.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/budget.css') }}">
+{% endblock %}
+
+{% block title %}
+    Budget Tracker
+{% endblock %}
+
+
+{% block main %}
+        <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card text-center p-3 mb-3">
+                    <h5>Current Balance</h5>
+                    <h3>£{{ '%.2f'|format(current_balance) }}</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center p-3 mb-3">
+                    <h5>Total Income</h5>
+                    <h3>£{{ '%.2f'|format(total_income) }}</h3>
+                </div>
+        </div>
+        <div class="col-md-4">
+                <div class="card text-center p-3 mb-3">
+                    <h5>Total Expenses</h5>
+                    <h3>£{{ '%.2f'|format(total_expense) }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-center p-2 mb-3">
+            <h6>Cash</h6>
+            <h4>£{{ '%.2f'|format(budget.cash) }}</h4>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center p-2 mb-3">
+            <h6>Savings</h6>
+            <h4>£{{ '%.2f'|format(budget.savings) }}</h4>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center p-2 mb-3">
+            <h6>Rent</h6>
+            <h4>£{{ '%.2f'|format(budget.rent) }}</h4>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center p-2 mb-3">
+            <h6>Investment</h6>
+            <h4>£{{ '%.2f'|format(budget.investments) }}</h4>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center p-2 mb-3">
+            <h6>Miscellaneous</h6>
+            <h4>£{{ '%.2f'|format(budget.miscellaneous) }}</h4>
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="card p-4 mb-5">
+        <h4 class="mb-3">Recent Transactions</h4>
+        <ul class="nav nav-tabs mb-3" id="transactionTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="week-tab" data-bs-toggle="tab" data-bs-target="#week" type="button" role="tab">Last Week</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" type="button" role="tab">Last Month</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="sixmonths-tab" data-bs-toggle="tab" data-bs-target="#sixmonths" type="button" role="tab">Last 6 Months</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="year-tab" data-bs-toggle="tab" data-bs-target="#year" type="button" role="tab">Last Year</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="transactionTabsContent">
+            {% for period, transactions in recent_transactions.items() %}
+            <div class="tab-pane fade {% if loop.first %}show active{% endif %}" id="{{ period }}" role="tabpanel">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tx in transactions %}
+                        <tr>
+                            <td>{{ tx.description }}</td>
+                            <td>£{{ '%.2f'|format(tx.amount) }}</td>
+                            <td>{{ tx.date }}</td>
+                            <td>{{ tx.category_name }}</td>
+                            <td>{{ tx.transaction_type }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if transactions|length == 0 %}
+                    <p class="text-center text-muted">No transactions in this period.</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+

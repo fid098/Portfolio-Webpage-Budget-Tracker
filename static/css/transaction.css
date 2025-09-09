@@ -1,0 +1,116 @@
+/* static/css/transaction.css */
+
+/* === General Page Styling === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #212529;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* === Container === */
+.container {
+    margin-top: 20px;
+}
+
+/* === Card Styling === */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    background: #ffffff;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card h4, .card h5 {
+    font-weight: 600;
+    color: #495057;
+}
+
+.card h2 {
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+/* === Form Styling === */
+form .form-label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #343a40;
+}
+
+form input,
+form select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.25);
+}
+
+form button {
+    font-weight: 500;
+    padding: 10px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+}
+
+/* === Table Styling === */
+.table {
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.table thead {
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+.table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f5ff;
+    transition: background-color 0.2s ease;
+}
+
+.table td, 
+.table th {
+    vertical-align: middle;
+}
+
+/* === Transaction Type Highlighting === */
+.table td:nth-child(5) {
+    font-weight: 600;
+}
+
+.table td:nth-child(5):contains("Income") {
+    color: #198754; /* Bootstrap green */
+}
+
+.table td:nth-child(5):contains("Expense") {
+    color: #dc3545; /* Bootstrap red */
+}
+
+/* === Footer Totals === */
+tfoot td {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-top: 2px solid #dee2e6;
+}
