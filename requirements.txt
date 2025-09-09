@@ -1,0 +1,4 @@
+flask 
+flas-session
+werkzeug
+matplotlib
